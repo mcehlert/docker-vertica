@@ -31,7 +31,7 @@ RUN /opt/vertica/sbin/install_vertica --license CE --accept-eula --hosts 127.0.0
 
 USER dbadmin
 RUN /opt/vertica/bin/admintools -t create_db --skip-fs-checks -s localhost -d docker -c /home/dbadmin/docker/catalog -D /home/dbadmin/docker/data
-RUN /opt/vertica/bin/vsql -f /opt/vertica/packages/hdfsconnector/ddl/install.sql
+RUN /opt/vertica/bin/vsql docker dbadmin -f /opt/vertica/packages/hdfsconnector/ddl/install.sql
 USER root
 
 RUN mkdir /tmp/.python-eggs
